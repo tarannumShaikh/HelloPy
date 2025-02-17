@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/yourusername/python-project.git'
+            }
+        }
+        stage('Run Python Code') {
+            steps {
+                script {
+                    bat 'python hello.py'
+                }
+            }
+        }
+    }
+}
